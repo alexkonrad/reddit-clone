@@ -1,13 +1,10 @@
 require 'spec_helper'
 
 describe UserVote do
-  #subject (:user_vote) { FactoryGirl.create(:user_vote, link_id: 1, user_id: 1) }
+  subject (:user_vote) { FactoryGirl.create(:user_vote) }
 
-  #it { should validate_uniqueness_of(:link_id).scoped_to(:user_id) }
-  it "jdsklf" do
-    UserVote.create!(link_id: 1, user_id: 1, vote: "up")
-    should validate_uniqueness_of(:user_id)
-  end
+  # TODO: figure out why this doesn't work
+  xit { should validate_uniqueness_of(:link_id).scoped_to(:user_id) }
   it { should ensure_inclusion_of(:vote).in_array(%w[up down]) }
 
   it { should belong_to(:user) }

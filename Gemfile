@@ -24,11 +24,12 @@ group :test do
   gem 'guard-rspec'
   gem 'faker'
   gem 'launchy'
-  gem 'shoulda-matchers', '2.5.0'
+  gem 'shoulda-matchers'
 end
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'capybara'
   gem 'factory_girl_rails'
 end
 
