@@ -9,9 +9,7 @@ feature "sign up" do
   feature "signs up a user" do
     before(:each) do
       visit new_user_url
-      fill_in 'username', with: "test_user"
-      fill_in 'password', with: "biscuits"
-      click_on "Sign Up"
+      sign_up_as_alex
     end
 
     it "redirects to index page after signup" do
@@ -19,11 +17,15 @@ feature "sign up" do
     end
 
     it "shows username on the home page after signup" do
-      expect(page).to have_content "test_user"
+      expect(page).to have_content "alex"
     end
   end
 end
 
+#
+# TODO: replace FactoryGirl mocks with helper methods to navigate
+# the site with Capybara
+#
 feature "show user" do
   before(:each) do
     let(:user) { FactoryGirl.create(:user, password: "amkamk") }
@@ -45,6 +47,11 @@ feature "show user" do
     expect(page).to have_content(link.title)
   end
 end
+
+#
+# TODO: replace FactoryGirl mocks with helper methods to navigate
+# the site with Capybara
+#
 
 feature "edit user" do
   before(:each) do

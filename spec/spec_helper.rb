@@ -6,6 +6,39 @@ require 'rspec/autorun'
 require 'factory_girl'
 require 'capybara/rspec'
 
+def sign_up(username)
+  visit "/users/new"
+  fill_in "Username", with: username
+  fill_in "Password", with: 'abcdef'
+  click_button 'Sign Up'
+end
+
+def sign_up_as_alex
+  sign_up("alex")
+end
+
+def sign_in(username)
+  visit "/session/new"
+  fill_in "Username", with: username
+  fill_in "Password", with: 'abcdef'
+  click_button 'Sign In'
+end
+
+def make_post(title = nil, body_text = nil)
+  title ||= "My First Post"
+  body_text ||= "The body of a post is rad."
+
+  visit "/posts/new"
+  fill_in 'Title', with: title
+  fill_in 'Body', with: body_text
+  click_button "Create New Post"
+end
+
+def add_tag
+  fill_in 'Tag Name', with: 'taggerific'
+  click_button 'Add Tag'
+end
+
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
