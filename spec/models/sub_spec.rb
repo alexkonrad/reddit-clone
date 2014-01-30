@@ -5,5 +5,5 @@ describe Sub do
 
   it { should validate_presence_of(:name) }
   it { should belong_to(:moderator) }
-  # it { should have_many(:links) }
+  it { should have_many(:links).through(:link_subs) }
 end

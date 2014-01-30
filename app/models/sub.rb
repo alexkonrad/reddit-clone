@@ -9,4 +9,7 @@ class Sub < ActiveRecord::Base
     foreign_key: :moderator_id,
     primary_key: :id
   )
+
+  has_many :link_subs
+  has_many :links, through: :link_subs, source: :link
 end
