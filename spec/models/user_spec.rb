@@ -10,10 +10,17 @@ describe User do
   it { should validate_presence_of(:password) }
   it { should ensure_length_of(:password).is_at_least(6) }
 
+  it { should have_many(:subs) }
+
   it "does not store the password in the database" do
     saved_user = User.find_by_username(user.username)
 
     expect(saved_user.password).to be_nil
   end
 
+  context "Moderator" do
+    let(:user_with_sub) { FactoryGirl.create(:user_with_sub) }
+
+    it { should have_many(:subs) }
+  end
 end

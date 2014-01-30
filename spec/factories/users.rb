@@ -4,5 +4,11 @@ FactoryGirl.define do
   factory :user do
     username { Faker::Name.name }
     password { Faker::Internet.password }
+
+    factory :user_with_sub do
+      after_create do |user|
+        create(:sub, moderator: user)
+      end
+    end
   end
 end

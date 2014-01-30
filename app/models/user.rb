@@ -7,6 +7,13 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
   validates :password, presence: true, length: { minimum: 6, allow_nil: true }
 
+  has_many(
+    :subs,
+    class_name: "Sub",
+    foreign_key: :moderator_id,
+    primary_key: :id
+  )
+
 
   def password=(secret)
     @password = secret
