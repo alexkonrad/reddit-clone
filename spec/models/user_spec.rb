@@ -23,4 +23,10 @@ describe User do
 
     it { should have_many(:subs) }
   end
+
+  context "User links" do
+    let(:user_with_links) { FactoryGirl.create(:user_with_links) }
+
+    it { should have_many(:links) }
+  end
 end

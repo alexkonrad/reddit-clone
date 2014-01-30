@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
     primary_key: :id
   )
 
+  has_many :links
+
 
   def password=(secret)
     @password = secret

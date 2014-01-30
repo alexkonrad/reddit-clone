@@ -10,5 +10,11 @@ FactoryGirl.define do
         create(:sub, moderator: user)
       end
     end
+
+    factory :user_with_links do
+      after_create do |user|
+        create(:link, user: user)
+      end
+    end
   end
 end
