@@ -24,7 +24,7 @@ group :test do
   gem 'guard-rspec'
   gem 'faker'
   gem 'launchy'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', '2.5.0'
 end
 
 group :development, :test do
@@ -40,7 +40,7 @@ end
 gem 'jquery-rails'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 
-# To use ActiveModel has_secure_password
+# To use ActiveModel
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
