@@ -11,7 +11,8 @@ describe User do
   it { should ensure_length_of(:password).is_at_least(6) }
 
   it { should have_many(:subs) }
-  it { should have_many(:links)}
+  it { should have_many(:links) }
+  it { should have_many(:comments) }
 
   it "does not store the password in the database" do
     saved_user = User.find_by_username(user.username)
