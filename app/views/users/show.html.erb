@@ -1,2 +1,14 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1><%= @user.username %></h1>
+
+<% @user.subs.each do |sub| %>
+
+<p><%= link_to "<%= sub.name %>", sub_url(sub), method: :get %>
+
+<% end %>
+
+<% @user.links.each do |link| %>
+
+	<p><%= link_to "<%= link.title %>", link_url(link), method: :get %><br>
+		<%= link.text %></p>
+
+<% end %>

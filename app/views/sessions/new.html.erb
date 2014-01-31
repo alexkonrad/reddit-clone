@@ -1,10 +1,6 @@
-<h1>Edit User</h1>
+<h1>Sign In</h1>
 
-<form action="<%= users_url %>" method="post">
-	
-	<input type="hidden"
-	   action="_method"
-	   value="put">
+<form action="<%= session_url %>" method="post">
 	
 	<input type="hidden"
 	   action="authenticity_token"
@@ -30,6 +26,6 @@
 
 	<p>
 		<input type="submit"
-		  value="Update User">
+		  value="Sign In">
 	</p>
 </form>
